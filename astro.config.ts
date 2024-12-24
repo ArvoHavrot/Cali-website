@@ -21,8 +21,12 @@ const hasExternalScripts = false;
 const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) =>
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
+// ⭐ ADD THIS LINE FOR GITHUB PAGES ⭐
+const base = '/<repo-name>/'; // Replace <repo-name> with your GitHub repo name
+
 export default defineConfig({
   output: 'static',
+  base, // ⭐ ADD THIS LINE FOR GITHUB PAGES ⭐
 
   integrations: [
     tailwind({
